@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Message</title>
+    <script src='./js/jquery.min.js?ver=1.12.4'></script>
+    <style>
+        #main{
+            margin: auto 100px;
+            align-content: center;
+        }
+
+    </style>
 </head>
 <body>
+<div id="main">
 
+</div>
+
+<script>
+    ws = new WebSocket("ws://127.0.0.1:1001");
+    /*ws.onopen = function() {
+     alert("连接成功");
+     ws.send('all|tom');
+     };*/
+    ws.onmessage = function(e) {
+        $("#main").append('<div>' + e.data+ '</div>');
+    };
+</script>
 </body>
 </html>

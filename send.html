@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Message</title>
+    <title>SendMessage</title>
+    <script src='./js/jquery.min.js?ver=1.12.4'></script>
     <style>
         #main{
             margin: auto 100px;
@@ -13,19 +14,21 @@
 </head>
 <body>
 <div id="main">
+    <textarea id="content"></textarea>
+    <input type="button"  id="btn" value="Send" />
 
 </div>
 
 <script>
     ws = new WebSocket("ws://127.0.0.1:1001");
     /*ws.onopen = function() {
-     alert("连接成功");
      ws.send('all|tom');
      };*/
-    ws.onmessage = function(e) {
-        document.getElementById('main').appendChild('<div>' + e.data+ '</div>');
-        alert(e.data);
-    };
+    
+    $("#btn").click(function () {
+        console.log($("#content").val());
+        ws.send('all|' + $("#content").val());
+    });
 </script>
 </body>
 </html>
