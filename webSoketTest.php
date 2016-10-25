@@ -42,7 +42,6 @@ class webSoketTest {
     public function OnMessage($connection, $data){
 
         var_dump($data);
-
         list($uid, $content) = explode('|', $data);
 
         if($uid === 'all'){
