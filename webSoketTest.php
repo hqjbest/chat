@@ -18,7 +18,7 @@ class webSoketTest {
 
     public function __construct()
     {
-        $this->worker = new Worker('websocket://127.0.0.1:1001');
+        $this->worker = new Worker('websocket://115.29.110.40:1001');
         $this->init();
         $this->runAll();
     }
